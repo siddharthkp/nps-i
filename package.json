@@ -1,6 +1,6 @@
 {
   "name": "nps-i",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Interactive mode for nps",
   "main": "index.js",
   "bin": {
@@ -11,12 +11,10 @@
   "author": "siddharthkp",
   "license": "MIT",
   "dependencies": {
-    "chalk": "2.4.1",
     "execa": "0.10.0",
     "fuzzy": "0.1.3",
     "inquirer": "5.2.0",
     "inquirer-autocomplete-prompt": "0.12.1",
-    "ora": "1.4.0",
     "right-pad": "1.0.1"
   },
   "devDependencies": {

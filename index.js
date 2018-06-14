@@ -4,9 +4,11 @@ const inquirer = require('inquirer')
 const autocomplete = require('inquirer-autocomplete-prompt')
 const fuzzy = require('fuzzy')
 const pad = require('right-pad')
+const path = require('path')
 const exec = require('./exec')
 
-const packageScripts = require('./test-package-scripts.js').scripts
+const config = path.join(process.cwd(), './package-scripts.js')
+const packageScripts = require(config).scripts
 
 let flatScripts = []
 
