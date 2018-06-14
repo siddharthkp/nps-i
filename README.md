@@ -1,7 +1,11 @@
 <p align="center">
   <img src="https://78.media.tumblr.com/240d51485c042ab5bed754294ad020c6/tumblr_msz10zJc751svwlszo2_500.gif" height="200px"/>
   <br><br>
-  <b>Interactive mode for <a target="blank" href="https://github.com/kentcdodds/nps">nps</a></b>
+  <b>Interactive mode for <a target="_blank" href="https://github.com/kentcdodds/nps">nps</a></b>
+  <br><br>
+  Demo:
+  <br><br>
+  <a target="_blank" href="https://twitter.com/siddharthkp/status/1007325679543816192"><img src="https://user-images.githubusercontent.com/1863771/41420782-e0549988-7012-11e8-93c5-6f87019d08ef.png" height="300px"/></a>
 </p>
 
 &nbsp;
