@@ -1,5 +1,7 @@
 const execa = require('execa')
 
 module.exports = command => {
-  execa.shell(command, { env: { FORCE_COLOR: true } }).stdout.pipe(process.stdout)
+  const output = execa.shell(command, { env: { FORCE_COLOR: true } })
+  output.stdout.pipe(process.stdout)
+  output.stderr.pipe(process.stderr)
 }
