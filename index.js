@@ -12,52 +12,53 @@ const packageScripts = require(config).scripts
 
 let flatScripts = []
 
-const flattenScripts = (scripts, prefix) => {
-  const keys = Object.keys(scripts)
-  keys.forEach(key => {
-    // format = name: command
-    let script
-    let description
-    let name
+const flattenScripts = (scripts, prefix, hidden = false) => {
+	const keys = Object.keys(scripts);
+	keys.forEach(key => {
+		// format = name: command
+		let script;
+		let description;
+		let name;
+		if (prefix) name = prefix + "." + key;
+		else name = key;
+		if (scripts[key].hiddenFromHelp) {
+			hidden = true;
+		}
+		// format = name: command
+		if (typeof scripts[key] === "string") {
+			script = scripts[key];
+			description = "";
+		}
 
-    if (prefix) name = prefix + '.' + key
-    else name = key
+		if (typeof scripts[key] === "object") {
+			const shape = scripts[key];
 
-    // format = name: command
-    if (typeof scripts[key] === 'string') {
-      script = scripts[key]
-      description = ''
-    }
+			// format = name: { default: command }
+			if (typeof shape.default === "string") {
+				script = shape.default;
+				description = shape.description;
 
-    if (typeof scripts[key] === 'object') {
-      const shape = scripts[key]
+				delete shape.default;
+				delete shape.description;
+			}
 
-      // format = name: { default: command }
-      if (typeof shape.default === 'string') {
-        script = shape.default
-        description = shape.description
+			// format = name: { script: command }
+			if (typeof shape.script === "string") {
+				script = shape.script;
+				description = shape.description;
 
-        delete shape.default
-        delete shape.description
-      }
+				delete shape.script;
+				delete shape.description;
+			}
 
-      // format = name: { script: command }
-      if (typeof shape.script === 'string') {
-        script = shape.script
-        description = shape.description
+			// recursively call for other shapes inside this object
+			// format = parent: { child: { script: command } }
+			flattenScripts(shape, name, hidden);
+		}
 
-        delete shape.script
-        delete shape.description
-      }
-
-      // recursively call for other shapes inside this object
-      // format = parent: { child: { script: command } }
-      flattenScripts(shape, name)
-    }
-
-    if (script) flatScripts.push({ name, script, description })
-  })
-}
+		if (script && !hidden) flatScripts.push({ name, script, description });
+	});
+};
 
 /* Flatten scripts */
 flattenScripts(packageScripts)
