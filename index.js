@@ -32,6 +32,10 @@ const flattenScripts = (scripts, prefix) => {
     if (typeof scripts[key] === 'object') {
       const shape = scripts[key]
 
+      if (shape.hiddenFromInteractive) {
+        return;
+      }
+
       // format = name: { default: command }
       if (typeof shape.default === 'string') {
         script = shape.default
