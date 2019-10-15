@@ -35,7 +35,7 @@ const flattenScripts = (scripts, prefix) => {
       // format = name: { default: command }
       if (typeof shape.default === 'string') {
         script = shape.default
-        description = shape.description
+        description = shape.description || ''
 
         delete shape.default
         delete shape.description
@@ -44,7 +44,7 @@ const flattenScripts = (scripts, prefix) => {
       // format = name: { script: command }
       if (typeof shape.script === 'string') {
         script = shape.script
-        description = shape.description
+        description = shape.description || ''
 
         delete shape.script
         delete shape.description
