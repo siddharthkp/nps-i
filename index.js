@@ -7,8 +7,9 @@ const pad = require('right-pad')
 const path = require('path')
 const exec = require('./exec')
 
-const config = path.join(process.cwd(), './tools/workspace-scripts.js')
-const packageScripts = require(config).scripts
+const configPath = path.join(process.cwd(), './tools/workspace-scripts.js')
+const config = require(configPath);
+const packageScripts = config.scripts
 
 let flatScripts = []
 
@@ -96,8 +97,8 @@ const filterScripts = (_, input) => {
 const autocompleteOptions = {
   type: 'autocomplete',
   name: 'string',
-  message: 'Which script would you like to run?\n\n',
-  pageSize: 15,
+  message: config.message || 'Which script would you like to run?\n\n',
+  pageSize: config.pageSize || 15,
   source: filterScripts
 }
 

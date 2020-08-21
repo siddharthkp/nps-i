@@ -1,6 +1,6 @@
 {
-  "name": "nps-i",
-  "version": "1.0.3",
+  "name": "@nstudio/nps-i",
+  "version": "1.1.0",
   "description": "Interactive mode for nps",
   "main": "index.js",
   "bin": {
