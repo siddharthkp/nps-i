@@ -1,5 +1,3 @@
-const { series: { nps: series }, concurrent: { nps: parallel } } = require('nps-utils')
-
 module.exports = {
   scripts: {
     default: 'echo default',

@@ -11,12 +11,11 @@
   "author": "siddharthkp",
   "license": "MIT",
   "dependencies": {
-    "execa": "~4.0.3",
+    "execa": "~6.0.0",
     "fuzzy": "0.1.3",
-    "inquirer": "~7.3.3",
-    "inquirer-autocomplete-prompt": "~1.0.2",
+    "inquirer": "~8.2.0",
+    "inquirer-autocomplete-prompt": "~1.4.0",
     "right-pad": "1.0.1",
-    "nps": "~5.10.0",
-    "nps-utils": "~1.7.0"
+    "nps": "~5.10.0"
   }
 }
